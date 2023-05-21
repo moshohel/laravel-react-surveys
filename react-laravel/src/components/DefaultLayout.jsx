@@ -7,7 +7,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { NavLink, Navigate, Outlet } from 'react-router-dom'
-import { userStateContext } from '../contexts/ContextProvider.jsx'
+import { useStateContext } from '../contexts/ContextProvider.jsx'
 
 const navigation = [
   { name: 'Surveys', to: '/surveys' },
@@ -19,7 +19,7 @@ function classNames(...classes) {
 }
 
 export default function DefaultLayout() {
-  const { currentUser, userToken } = userStateContext()
+  const { currentUser, userToken } = useStateContext()
 
   if (!userToken) {
     return <Navigate to="/login" />
